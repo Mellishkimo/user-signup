@@ -39,11 +39,11 @@ def validate_information():
     if verify_password == "" or verify_password != password:
         verify_error = "Please re-enter the same password."
     
-    if email == "":
-        email_error = "Please enter an email."
-    elif email.count('@') != 1 or email.count('.') != 1:
-        email_error = "You must enter a valid e-mail address."
-        email = ""
+  
+    if email != "": 
+        if email.count('@') != 1 or email.count('.') != 1:
+            email_error = "You must enter a valid e-mail address."
+        
     
     if not user_error and not password_error and not verify_error and not email_error:
         return render_template('welcome.html', username = username)
